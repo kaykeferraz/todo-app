@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,16 +6,21 @@
 }
 
 :root {
-    --bg-header-mobile: url(../imagens/bg-header-desktop-light.png);
+    --bg-header-mobile: url(../imagens/bg-header-mobile-light.png);
+    --bg-header-desktop: url(../imagens/bg-header-desktop-light.png);
     --input-box-shadow: rgba(194, 195, 214, 0.50);
     --input-color: #494c6b;
+    --placeholder-color: #9495a5;
     --button-color: #393a4b;
+    --button-color-hover: #494c6b;
     --bg-body: #FAFAFA;
     --bg-tarefas: #fff;
     --box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.50);
     --border-color: #e3e4f1;
     --text-color: #494c6b;
     --info-text-color: #9495a5;
+    --info-button-hover: #494c6b;
+    --info-button-active: #3a7cfd;
 }
 
 body {
@@ -28,7 +33,6 @@ header {
     background-size: cover;
     background-position: center;
     height: 12.5rem;
-
     padding: 3rem 1.75rem 0;
 }
 
@@ -41,7 +45,6 @@ header div div {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     margin-bottom: 2.5rem;
 }
 
@@ -49,6 +52,7 @@ header div h1 {
     color: #fff;
     text-transform: uppercase;
 }
+
 header form {
     display: flex;
     gap: 0.5rem;
@@ -65,17 +69,20 @@ header form input {
     color: var(--input-color);
 }
 
+header form input::placeholder {
+    color: var(--placeholder-color);
+}
+
 header form button {
     padding: 0.75rem;
     border-radius: 0.3125rem;
     border: none;
-    background: var(--button-color); 
+    background: var(--button-color);
     color: #fff;
-    margin-left: auto; 
+    margin-left: auto;
 }
 
 main {
-    min-height: calc(100vh - 12.5rem);
     padding-inline: 1.75rem;
 }
 
@@ -105,7 +112,6 @@ main {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-
     color: var(--text-color);
     font-size: 0.75rem;
 }
@@ -126,7 +132,7 @@ main {
 
 .informacoes a,
 .botoes a {
-    text-decoration: nome;
+    text-decoration: none;
     color: var(--info-text-color);
 }
 
@@ -142,15 +148,53 @@ main {
     margin-top: 1rem;
     max-width: 33.75rem;
     margin-inline: auto;
-
     display: flex;
     justify-content: center;
     gap: 1.2rem;
-
     font-size: 0.875rem;
 }
 
+.botoes .active {
+    color: var(--info-button-active);
+}
+
 @media(min-width: 1000px) {
+    header {
+        background-image: var(--bg-header-desktop);
+        height: 18.75rem;
+        padding-top: 4.37rem;
+    }
+
+    header div div {
+        margin-bottom: 3rem;
+    }
+
+    header form input {
+        padding: 1.25rem 1.5rem;
+        font-size: 1.125rem;
+    }
+
+    header form button {
+        font-size: 1.125rem;
+    }
+
+    header form button:hover {
+        cursor: pointer;
+        background: var(--button-color-hover);
+    }
+
+    .tarefa {
+        margin-top: -3rem;
+    }
+
+    .tarefas .tarefa {
+        padding: 1.25rem 1.5rem ;
+    }
+
+    .tarefa div {
+        font-size: 1.125rem;
+    }
+
     section.botoes {
         display: none;
     }
@@ -161,16 +205,23 @@ main {
         margin: 0;
     }
 
+    .informacoes {
+        font-size: 0.875rem;
+    }
+
+    .informacoes a:hover {
+        color: var(--info-button-hover);
+    }
+
     .tarefa button {
         visibility: hidden;
     }
 
-    .tarefa input :hover,
-    .tarefa label :hover,
-    .tarefa button :hover {
+    .tarefa input:hover,
+    .tarefa label:hover,
+    .tarefa button:hover {
         cursor: pointer;
     }
-
 
     .tarefa:hover button {
         visibility: initial;
